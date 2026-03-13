@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吴昊爱胡珍珍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            overflow: hidden;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffe5e5 0%, #fff0f0 50%, #ffe0e6 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 48px;
+            color: #ff6b9d;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #ff8ab3;
+            letter-spacing: 2px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(255, 107, 157, 0.2);
+            animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .poem {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .poem-line {
+            font-size: 28px;
+            color: #333;
+            line-height: 2.5;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .poem-line:hover {
+            color: #ff6b9d;
+            transform: scale(1.05);
+        }
+
+        .poem-line .char-first {
+            color: #ff6b9d;
+            font-weight: 700;
+            font-size: 32px;
+        }
+
+        .explanation {
+            background: linear-gradient(135deg, #ffe5e5 0%, #fff0f0 100%);
+            border: 2px solid #ffc0d9;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .explanation-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ff6b9d;
+            margin-bottom: 10px;
+        }
+
+        .explanation-content {
+            font-size: 14px;
+            color: #ff8ab3;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 16px;
+            color: #ff6b9d;
+            font-weight: bold;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+        }
+
+        @media (max-width: 600px) {
+            .title {
+                font-size: 36px;
+            }
+
+            .card {
+                padding: 30px;
+            }
+
+            .poem-line {
+                font-size: 24px;
+            }
+
+            .poem-line .char-first {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">💕 藏头诗 💕</div>
+            <div class="subtitle">吴昊爱胡珍珍</div>
+        </div>
+
+        <div class="card">
+            <div class="poem">
+                <div class="poem-line">
+                    <span class="char-first">吴</span>越千年思绪长
+                </div>
+                <div class="poem-line">
+                    <span class="char-first">昊</span>日东升耀四方
+                </div>
+                <div class="poem-line">
+                    <span class="char-first">爱</span>你如诗入心房
+                </div>
+                <div class="poem-line">
+                    <span class="char-first">胡</span>笳声声伴远航
+                </div>
+                <div class="poem-line">
+                    <span class="char-first">珍</span>珠闪烁映月光
+                </div>
+                <div class="poem-line">
+                    <span class="char-first">珍</span>心永驻在你身旁
+                </div>
+            </div>
+
+            <div class="explanation">
+                <div class="explanation-title">📖 藏头诗说明</div>
+                <div class="explanation-content">
+                    读取诗歌每一行的首字：<br>
+                    <strong>吴、昊、爱、胡、珍、珍</strong><br>
+                    组成"<strong>吴昊爱胡珍珍</strong>"
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            ❤️ 永远爱你 ❤️
+        </div>
+    </div>
+
+    <script>
+        // 添加页面加载完成后的效果
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('页面加载完成！');
+        });
+
+        // 诗歌行的交互效果
+        const poemLines = document.querySelectorAll('.poem-line');
+        poemLines.forEach((line, index) => {
+            line.style.animationDelay = (index * 0.1) + 's';
+            line.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) rotateX(5deg)';
+            });
+            line.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotateX(0deg)';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="吴昊爱胡珍珍 - Flutter Web 应用">
+
+    <!-- iOS meta tags & app icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="wh_love_hzz">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png"/>
+
+    <title>吴昊爱胡珍珍</title>
+    <link rel="manifest" href="manifest.json">
+
+    <script>
+      // The value of the "base" tag is set by the build process.
+      const base = document.querySelector('base').getAttribute('href');
+
+      // If `baseHref` ends with `/`, we add `/` to the
+      // base URL to make it absolute. This fixes issues on IE11
+      // (see https://github.com/flutter/flutter_web/issues/8471 ).
+      if (base.endsWith('/')) {
+        window.flutterWebRenderer = "html";
+      }
+    </script>
+
+    <script>
+      window.flutterPlatformChannelNames = [];
+    </script>
+
+    <script src="flutter.js" defer></script>
+  </head>
+  <body>
+    <script>
+      window.addEventListener('flutter-first-frame', function () {
+        document.body.style.opacity = '1';
+      });
+    </script>
+  </body>
+</html>
