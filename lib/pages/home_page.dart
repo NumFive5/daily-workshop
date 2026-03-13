@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
     const AttendancePage(),
   ];
 
-  final List<String> _titles = ['诗歌', '时间轴', '相册', '考勤'];
+  final List<String> _titles = ['诗歌', '时间轴', '相册', '工作坊'];
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.checklist),
-            label: '考勤',
+            label: '工作坊',
           ),
         ],
         selectedItemColor: Colors.pink.shade600,

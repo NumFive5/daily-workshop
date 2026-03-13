@@ -132,7 +132,7 @@ class _AttendancePageState extends State<AttendancePage> {
                 ..href = html.Url.createObjectUrlFromBlob(
                   html.Blob([downloadData], 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'),
                 )
-                ..download = '考勤整理表_${DateTime.now().toString().split(' ')[0]}.xlsx'
+                ..download = '工作坊整理表_${DateTime.now().toString().split(' ')[0]}.xlsx'
                 ..click();
 
               ScaffoldMessenger.of(context).showSnackBar(
@@ -200,7 +200,7 @@ class _AttendancePageState extends State<AttendancePage> {
                 children: [
                   CircularProgressIndicator(),
                   SizedBox(height: 16),
-                  Text('加载考勤数据中...'),
+                  Text('加载工作坊数据中...'),
                 ],
               ),
             );
@@ -702,7 +702,7 @@ class _AttendancePageState extends State<AttendancePage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '📤 上传考勤数据',
+                            '📤 上传工作坊数据',
                             style: Theme.of(context).textTheme.titleMedium?.copyWith(
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -795,7 +795,7 @@ class _AttendancePageState extends State<AttendancePage> {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    '重新从服务器加载最新的考勤数据',
+                    '重新从服务器加载最新的工作坊数据',
                     style: TextStyle(
                       fontSize: 13,
                       color: Colors.grey.shade600,
