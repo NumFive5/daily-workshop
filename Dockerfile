@@ -1,42 +1,14 @@
-# 编译阶段
-FROM ubuntu:22.04 AS builder
+# 使用轻量级的 Nginx 镜像作为基础镜像
+FROM nginx:stable-alpine
 
-# 安装 Flutter 依赖
-RUN apt-get update && apt-get install -y \
-    curl \
-    git \
-    unzip \
-    && rm -rf /var/lib/apt/lists/*
+# 将 Flutter Web 构建产物复制到 Nginx 默认的 HTML 目录
+COPY build/web /usr/share/nginx/html
 
-# 下载并安装 Flutter
-RUN git clone https://github.com/flutter/flutter.git /flutter
-ENV PATH="/flutter/bin:${PATH}"
+# 复制自定义 Nginx 配置（可选，解决 SPA 路由问题）
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# 预下载依赖
-RUN flutter config --enable-web
+# 暴露 80 端口
+EXPOSE 80
 
-WORKDIR /app
-
-# 复制项目文件
-COPY pubspec.yaml pubspec.lock ./
-COPY lib ./lib
-COPY web ./web
-
-# 获取 pub 依赖
-RUN flutter pub get
-
-# 构建 Web 版本
-RUN flutter build web --release
-
-# 运行阶段
-FROM python:3.11-slim
-
-WORKDIR /app
-
-# 从编译阶段复制构建输出
-COPY --from=builder /app/build/web ./build/web
-
-# 使用 Python HTTP 服务器
-EXPOSE 5000
-
-CMD ["python", "-m", "http.server", "5000", "--directory", "build/web"]
+# 启动 Nginx
+CMD ["nginx", "-g", "daemon off;"]
